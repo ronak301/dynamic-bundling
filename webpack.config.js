@@ -10,7 +10,7 @@ const AUTOPREFIXER_BROWSERS = [
 module.exports = {
   entry: "./app.js",
   externals: {
-    react: 'React',
+    'react': 'React',
     'react-native': 'ReactNative'
   },
   output: {

@@ -1,4 +1,4 @@
-/******/ (function(modules) { // webpackBootstrap
+const bundle = (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
 
@@ -50,7 +50,7 @@
 /* 1 */
 /***/ function(module, exports) {
 
-	module.exports = react;
+	module.exports = React;
 
 /***/ },
 /* 2 */
@@ -66,3 +66,5 @@
 
 /***/ }
 /******/ ]);
+
+module.exports = bundle;

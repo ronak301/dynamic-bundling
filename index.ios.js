@@ -4,9 +4,10 @@
  * @flow
  */
 
+import './SPRPolyFills';
 
  import React from 'react';
- import {
+ import ReactNative, {
    StyleSheet,
    Text,
    TextInput,
@@ -16,7 +17,6 @@
  } from 'react-native';
 
  import Dimensions from 'Dimensions';
- import codeFromEditor from './code';
 
  const babelStandalone = require('./babel-standalone');
  const {height, width} = Dimensions.get('window');
@@ -25,6 +25,8 @@
    'react': require('react'),
    'react-native': require('react-native'),
  };
+
+  import codeFromEditor from './code';
 
  function wrapScript(code) {
    return `
@@ -48,61 +50,10 @@
        url: 'http://ccheever.com/Exponent/OneComponent.jsx',
      };
    }
-
-   componentDidMount() {
-     // this._updateCode();
-
-   }
-
-   _updateCode() {
-     this._updateCodeAsync().then((code) => {
-       console.log("Code loaded I think.");
-       this.setState({code});
-     }, (err) => {
-       console.error("Error loading code: ", err);
-     });
-   }
-
-   async _updateCodeAsync() {
-     let response = await fetch(this.state.url);
-     let code = await response.text();
-     return code;
-   }
-
+   
    render() {
-     let errorText = undefined;
-     let code = '';
-     let m = undefined;
-     let wrappedCode;
-     try {
-       code = babelStandalone.transform(this.state.code, {
-         presets: ['es2015', 'react', 'exponent'],
-       }).code;
-       wrappedCode = wrapScript(code);
-     } catch (e) {
-       errorText = '' + e;
-     }
-     try {
-       if (wrappedCode) {
-         m = eval(wrappedCode);
-       }
-     } catch (e) {
-       errorText = '' + e;
-     }
-     let MyComponent = m;
-     if (m && m.exports && m.exports.__esModule) {
-       MyComponent = m.exports.default;
-     } else if (m && m.exports) {
-       MyComponent = m.exports;
-     } else {
-       MyComponent = undefined;
-     }
-
-     errorText = errorText || '';
-     let message = {
-       errorText,
-     };
-
+     debugger;
+     const MyComponent = eval(this.state.code);
      return (MyComponent && <MyComponent /> || <View />);
 
      return (

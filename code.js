@@ -15,7 +15,6 @@
 // };`
 
 import bundle from './output';
-const code = `${bundle}`;
 
 
-export default code;
+export default bundle;
