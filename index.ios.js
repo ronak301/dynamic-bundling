@@ -17,6 +17,7 @@ import ReactNative, {
 } from 'react-native';
 
 import Dimensions from 'Dimensions';
+import codePush from "react-native-code-push";
 
 const babelStandalone = require('./babel-standalone');
 const { height, width } = Dimensions.get('window');
@@ -85,4 +86,4 @@ const styles = StyleSheet.create({
   }
 });
 
-AppRegistry.registerComponent('poctest', () => App);
+AppRegistry.registerComponent('poctest', () => codePush(codePushOptions)(App));

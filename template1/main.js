@@ -7,7 +7,7 @@ class First extends React.Component {
       return React.createElement(
         View,
         null,
-        React.createElement(Text, null, "Component1"),
+        React.createElement(Text, null, "Component1 from template1"),
         React.createElement(Component2, null)
 );
    }
