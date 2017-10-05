@@ -1,20 +1,7 @@
-// const code = `import React from 'react';
-// import { View, Text } from 'react-native';
-// export default class MyComponent extends React.Component {
-// render() {
-// return (
-//  <View style={{ padding: 30, flexGrow:1, alignItems: 'center', justifyContent: 'center' }}>
-//    <Text>Change this code and watch the output change</Text>
-//    <Text style={{
-//       color: 'gray',
-//       fontSize: 11,
-//    }}>Use export default on the Component you want to render</Text>
-//  </View>
-// );
-// }
-// };`
+import bundle1 from './template1/output';
+import bundle2 from './template2/output';
 
-import bundle from './output';
-
-
-export default bundle;
+module.exports = {
+  bundle1,
+  bundle2
+};
