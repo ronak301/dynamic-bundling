@@ -19,6 +19,8 @@ import ReactNative, {
 import Dimensions from 'Dimensions';
 import codePush from "react-native-code-push";
 
+let codePushOptions = { checkFrequency: codePush.CheckFrequency.ON_APP_RESUME };
+
 const babelStandalone = require('./babel-standalone');
 const { height, width } = Dimensions.get('window');
 
