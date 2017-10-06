@@ -56,8 +56,8 @@ class App extends React.Component {
 
   render() {
     debugger;
-    const MyComponent1 = eval(this.state.code.bundle1);
-    const MyComponent2 = eval(this.state.code.bundle2);
+    const MyComponent1 = this.state.code.bundle1;
+    const MyComponent2 = this.state.code.bundle2;
     return (
       <View>
         <MyComponent1 />
