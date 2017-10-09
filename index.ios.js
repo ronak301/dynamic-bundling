@@ -16,50 +16,57 @@ import ReactNative, {
   AppRegistry
 } from 'react-native';
 
-import Dimensions from 'Dimensions';
 import codePush from "react-native-code-push";
 
-let codePushOptions = { checkFrequency: codePush.CheckFrequency.ON_APP_RESUME };
-
-const babelStandalone = require('./babel-standalone');
-const { height, width } = Dimensions.get('window');
-
-global['$$$___1C_Modules___$$$'] = {
-  react: require('react'),
-  'react-native': require('react-native')
-};
-
+import testBundle from './template1/output';
 import codeFromEditor from './code';
 
-function wrapScript(code) {
-  return `
-     global['$$$___1C_Result___$$$'] = (function (require, module, exports) {
-       exports = {};
-       module = {exports: exports};
-       ${code}
-       ;
-       return module;
-     })(function (moduleName) { // require implementation
-       return global['$$$___1C_Modules___$$$'][moduleName];
-     });
-   `;
-}
-
+const NUM_OF_TEMPLATES = 100;
+let codePushOptions = { checkFrequency: codePush.CheckFrequency.ON_APP_RESUME };
 class App extends React.Component {
+
   constructor(props, context) {
     super(props, context);
     this.state = {
       code: codeFromEditor,
-      url: 'http://ccheever.com/Exponent/OneComponent.jsx'
+      isReady: false,
+      timeTaken: 0
     };
   }
 
+  componentWillMount() {
+    const timeTaken = this.calculateEvalExecutionTime();
+    this.setState({
+      timeTaken
+    })
+  }
+
+  calculateEvalExecutionTime = function() {
+    var startTime = Date.now();
+    var endTime;
+    for (var i=0; i <= NUM_OF_TEMPLATES; i++) {
+      eval(testBundle);
+      if (i === NUM_OF_TEMPLATES) {
+        endTime = Date.now();
+        this.setState({
+          isReady: true
+        })
+      }
+    }
+    if (i >= NUM_OF_TEMPLATES) {
+      return endTime - startTime;
+    }
+  }
+
   render() {
-    debugger;
-    const MyComponent1 = this.state.code.bundle1;
+    if (!this.state.isReady) {
+      return null;
+    }
+    const MyComponent1 = eval(this.state.code.bundle1);
     const MyComponent2 = this.state.code.bundle2;
     return (
-      <View>
+      <View style={{ flex:1, alignItems: 'center', justifyContent: 'center' }}>
+        <Text>{`timetaken:  ${this.state.timeTaken}`}</Text>
         <MyComponent1 />
         <MyComponent2 />
       </View>
