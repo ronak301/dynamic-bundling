@@ -3,5 +3,5 @@ import bundle2 from './template2/output';
 
 module.exports = {
   bundle1,
-  bundle2
+  bundle2: bundle2
 };

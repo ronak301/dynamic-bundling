@@ -21,7 +21,7 @@ import codePush from "react-native-code-push";
 import testBundle from './template1/output';
 import codeFromEditor from './code';
 
-const NUM_OF_TEMPLATES = 100;
+const NUM_OF_TEMPLATES = 1000;
 let codePushOptions = { checkFrequency: codePush.CheckFrequency.ON_APP_RESUME };
 class App extends React.Component {
 
@@ -68,21 +68,21 @@ class App extends React.Component {
       <View style={{ flex:1, alignItems: 'center', justifyContent: 'center' }}>
         <Text>{`timetaken:  ${this.state.timeTaken}`}</Text>
         <MyComponent1 />
-        <MyComponent2 />
+        <MyComponent2  />
       </View>
     );
 
-    return (
-      <View style={styles.container}>
-        <View
-          style={{
-            height: 30,
-            width: 1
-          }}
-        />
-        {MyComponent && <MyComponent />}
-      </View>
-    );
+    // return (
+    //   <View style={styles.container}>
+    //     <View
+    //       style={{
+    //         height: 30,
+    //         width: 1
+    //       }}
+    //     />
+    //     {MyComponent && <MyComponent />}
+    //   </View>
+    // );
   }
 }
 
