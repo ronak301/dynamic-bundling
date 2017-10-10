@@ -13,7 +13,8 @@ import ReactNative, {
   TextInput,
   TouchableOpacity,
   View,
-  AppRegistry
+  AppRegistry,
+  Button
 } from 'react-native';
 
 import codePush from "react-native-code-push";
@@ -70,9 +71,14 @@ class App extends React.Component {
         <Text>{`timetaken:  ${this.state.timeTaken}`}</Text>
         <MyComponent1 />
         <MyComponent2  />
-        <RemoteBundle />
+        <Button style={{ width: 100, height: 60, backgroundColor: 'gray'}} title="Download Me" onPress={this.onPress} />
+        { this.state.shouldShowRemoteBundle && <RemoteBundle /> }
       </View>
     );
+  }
+
+  onPress = () => {
+    this.setState({shouldShowRemoteBundle: true});
   }
 }
 
