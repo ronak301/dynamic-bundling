@@ -27,6 +27,8 @@ project.xcworkspace
 build/
 .idea
 .gradle
+.happypack
+.vscode
 local.properties
 *.iml
 
