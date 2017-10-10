@@ -1,20 +1,20 @@
 export default [
     {
         "templateId": "65yet34-7ut8338-c8e1-4f4d2-baa4-3-asdy453",
-        "templateName": "MOBILE_TWITTER1_NQA"
+        "templateName": "TEMPLATE_1"
     },
-    // {
-    //     "templateId": "6473-65yet34-7ut8338-c8e1-4f4d2-baa4-3-asd",
-    //     "templateName": "MOBILE_TWITTER2_NQA",
-    //     "templateProps": {
-    //         "data": {
-    //             text: 'MOBILE_TWITTER2_NQA'
-    //         }
-    //     },
-    // },
+    {
+        "templateId": "6473-65yet34-7ut8338-c8e1-4f4d2-baa4-3-asd",
+        "templateName": "TEMPLATE_2",
+        "templateProps": {
+            "data": {
+                text: 'CUSTOM TEXT HERE'
+            }
+        },
+    },
     {
         "templateId": "hd543q-afs-65yet34-7ut8338-c8e1-4f4d2-baa4",
-        "templateName": "MOBILE_TWITTER3_NQA",
+        "templateName": "TEMPLATE_3",
         "templateProps": {
             "data": {
                 textStyle: {
