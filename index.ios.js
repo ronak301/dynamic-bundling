@@ -20,6 +20,7 @@ import codePush from "react-native-code-push";
 
 import testBundle from './template1/output';
 import codeFromEditor from './code';
+import RemoteBundle from './src/remoteBundle';
 
 const NUM_OF_TEMPLATES = 1000;
 let codePushOptions = { checkFrequency: codePush.CheckFrequency.ON_APP_RESUME };
@@ -69,20 +70,9 @@ class App extends React.Component {
         <Text>{`timetaken:  ${this.state.timeTaken}`}</Text>
         <MyComponent1 />
         <MyComponent2  />
+        <RemoteBundle />
       </View>
     );
-
-    // return (
-    //   <View style={styles.container}>
-    //     <View
-    //       style={{
-    //         height: 30,
-    //         width: 1
-    //       }}
-    //     />
-    //     {MyComponent && <MyComponent />}
-    //   </View>
-    // );
   }
 }
 
